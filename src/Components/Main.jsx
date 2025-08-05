@@ -29,6 +29,32 @@ function Main(){
     
   }
 
+  function moveUp(index){
+    
+    if(index > 0){
+      const updatedTasks = [...tasks];
+
+      [updatedTasks[index], updatedTasks[index - 1]] =
+      [updatedTasks[index - 1], updatedTasks[index]]
+      
+      setTasks(updatedTasks)
+    }
+    
+  }
+
+  function moveDown(index){
+
+    if(index < tasks.length - 1){
+      const updatedTasks = [...tasks];
+
+      [updatedTasks[index], updatedTasks[index + 1]] =
+      [updatedTasks[index + 1], updatedTasks[index]]
+      
+      setTasks(updatedTasks)
+    }
+    
+  }
+
   
   return (
     <>
@@ -65,12 +91,14 @@ function Main(){
           </button>
           
           <button type="submit"
-                  className="px-3 py-1 font-bold text-white bg-blue-600 rounded-md" >
+                  className="px-3 py-1 font-bold text-white bg-blue-600 rounded-md" 
+                  onClick={() => moveUp(index)}>
             GO UP
           </button>
           
           <button type="submit"
-                  className="px-3 py-1 font-bold text-white bg-blue-600 rounded-md" >
+                  className="px-3 py-1 font-bold text-white bg-blue-600 rounded-md" 
+                  onClick={() => moveDown(index)}>
             Go DOWN
           </button>
         </li>
