@@ -8,7 +8,7 @@ const ColorMode = ({children}) => {
 
 
     return (
-        <Color.Provider>
+        <Color.Provider value={{mode, setMode}}>
             {children}
         </Color.Provider>
     )
