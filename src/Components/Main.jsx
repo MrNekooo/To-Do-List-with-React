@@ -69,7 +69,7 @@ function Main(){
       
       <button type="submit"
               onClick={addTask}
-              className="h-full px-3 py-1 font-bold text-white transition-all ease-in delay-100 bg-blue-600 rounded-md hover:bg-blue-800">
+              className="h-full px-3 py-1 font-bold text-white transition-all ease-in delay-100 bg-teal-500 rounded-md hover:bg-teal-700">
         Add
       </button>
       
@@ -79,27 +79,27 @@ function Main(){
       {tasks.map((task, index) => (
         
         <li   key={index}
-              className="flex items-center justify-center gap-5 p-4 text-black bg-white rounded-md">
+              className="flex items-center justify-center gap-5 p-4 text-black bg-gray-700 rounded-md">
         
-          <div className="font-bold"> {task} </div>
+          <div className="font-bold text-white"> {task} </div>
           
           
           <button type="submit"
                   onClick={() => deleteTask(index)}
-                  className="px-3 py-1 font-bold text-white bg-red-600 rounded-md" >
+                  className="px-3 py-1 font-bold text-white transition-all ease-in delay-100 bg-red-600 rounded-md hover:bg-red-800" >
             DELETE
           </button>
           
           <button type="submit"
-                  className="px-3 py-1 font-bold text-white bg-blue-600 rounded-md" 
+                  className="px-3 py-1 font-bold text-black transition-all ease-in delay-100 bg-teal-500 rounded-md hover:bg-teal-700" 
                   onClick={() => moveUp(index)}>
             GO UP
           </button>
           
           <button type="submit"
-                  className="px-3 py-1 font-bold text-white bg-blue-600 rounded-md" 
+                  className="px-3 py-1 font-bold text-black transition-all ease-in delay-100 bg-teal-500 rounded-md hover:bg-teal-700" 
                   onClick={() => moveDown(index)}>
-            Go DOWN
+            GO DOWN
           </button>
         </li>
         
