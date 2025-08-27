@@ -59,7 +59,20 @@ function Main(){
 
   
   return (
-    <>
+    <div className="flex flex-col items-center justify-center h-screen text-white bg-black">
+
+    <div className="flex flex-col gap-3">
+      <button onClick={() => setMode(mode === "light" ? "dark" : "light")}
+              className={`px-3 py-1 font-bold rounded-lg  ${mode === "dark" 
+                            ? "bg-teal-500 text-white"
+                            : "bg-white text-black"}`} >
+        Change mode
+      </button>
+      <h1 className="mb-10 text-6xl font-bold">
+        To Do List
+      </h1> 
+    </div>
+    
     <div      className="flex items-center justify-center max-w-lg gap-5 bg-white rounded-md">
     
       <input  type="text"
@@ -108,7 +121,8 @@ function Main(){
       ))} 
     </ul>
     
-    </>
+    <p className="mt-5 text-sm">CopyRight &copy;Nekooo {new Date().getFullYear()}</p>
+    </div>
   )
 }
 
