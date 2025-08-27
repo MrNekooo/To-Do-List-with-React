@@ -59,16 +59,20 @@ function Main(){
 
   
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-white bg-black">
+    <div className={` flex flex-col items-center justify-center h-screen 
+                        ${mode === "dark"
+                        ? "text-white bg-black"
+                        : "text-black bg-white"}`}>
 
     <div className="flex flex-col gap-3">
       <button onClick={() => setMode(mode === "light" ? "dark" : "light")}
-              className={`px-3 py-1 font-bold rounded-lg  ${mode === "dark" 
-                            ? "bg-teal-500 text-white"
-                            : "bg-white text-black"}`} >
+              className={`px-3 py-1 font-bold rounded-lg transition-all ease-in delay-75  
+                            ${mode === "dark" 
+                            ? "bg-teal-500 text-white hover:bg-teal-700"
+                            : "bg-white text-black hover:bg-gray-400"}`} >
         Change mode
       </button>
-      <h1 className="mb-10 text-6xl font-bold">
+      <h1 className={`mb-10 text-6xl font-bold`}>
         To Do List
       </h1> 
     </div>
@@ -84,7 +88,7 @@ function Main(){
       
       <button type="submit"
               onClick={addTask}
-              className="h-full px-3 py-1 font-bold text-white transition-all ease-in delay-100 bg-teal-500 rounded-md hover:bg-teal-700">
+              className="h-full px-3 py-1 font-bold text-white transition-all ease-in delay-75 bg-teal-500 rounded-md hover:bg-teal-700">
         Add
       </button>
       
@@ -94,25 +98,33 @@ function Main(){
       {tasks.map((task, index) => (
         
         <li   key={index}
-              className="flex items-center justify-center gap-5 p-4 text-black bg-gray-700 rounded-md">
+              className={`flex items-center justify-center gap-5 p-4 rounded-md
+                            ${mode === "dark"
+                            ? "text-black bg-gray-700"
+                            : "text-black bg-white"}`}>
         
-          <div className="font-bold text-white"> {task} </div>
+          <div className={`font-bold
+                            ${mode === "dark"
+                            ? "text-white"
+                            : "text-black"}`}> 
+            {task} 
+          </div>
           
           
           <button type="submit"
                   onClick={() => deleteTask(index)}
-                  className="px-3 py-1 font-bold text-white transition-all ease-in delay-100 bg-red-600 rounded-md hover:bg-red-800" >
+                  className="px-3 py-1 font-bold text-white transition-all ease-in delay-75 bg-red-600 rounded-md hover:bg-red-800" >
             DELETE
           </button>
           
           <button type="submit"
-                  className="px-3 py-1 font-bold text-black transition-all ease-in delay-100 bg-teal-500 rounded-md hover:bg-teal-700" 
+                  className="px-3 py-1 font-bold text-white transition-all ease-in delay-75 bg-teal-500 rounded-md hover:bg-teal-700" 
                   onClick={() => moveUp(index)}>
             GO UP
           </button>
           
           <button type="submit"
-                  className="px-3 py-1 font-bold text-black transition-all ease-in delay-100 bg-teal-500 rounded-md hover:bg-teal-700" 
+                  className="px-3 py-1 font-bold text-white transition-all ease-in delay-75 bg-teal-500 rounded-md hover:bg-teal-700" 
                   onClick={() => moveDown(index)}>
             GO DOWN
           </button>
