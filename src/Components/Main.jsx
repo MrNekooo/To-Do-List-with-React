@@ -1,10 +1,12 @@
 import { useState } from "react"
+import { useColor } from "./ColorMode"
 
 function Main(){
 
   
   const [tasks, setTasks] = useState([])
   const [newTask, setNewTask] = useState("")
+  const {mode, setMode} = useColor();
 
   function handleInputChange(e){
     setNewTask(e.target.value)
